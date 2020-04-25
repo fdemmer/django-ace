@@ -112,8 +112,7 @@
 
         // options
         if (mode) {
-            var Mode = require("ace/mode/" + mode).Mode;
-            editor.getSession().setMode(new Mode());
+            editor.session.setMode("ace/mode/" + mode);
         }
         if (theme) {
             editor.setTheme("ace/theme/" + theme);
