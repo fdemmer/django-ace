@@ -13,6 +13,7 @@ class AceWidget(forms.Textarea):
         self,
         mode=None,
         theme=None,
+        use_worker=True,
         wordwrap=False,
         width="500px",
         height="300px",
@@ -32,6 +33,7 @@ class AceWidget(forms.Textarea):
     ):
         self.mode = mode
         self.theme = theme
+        self.use_worker = use_worker
         self.wordwrap = wordwrap
         self.width = width
         self.height = height
@@ -67,6 +69,7 @@ class AceWidget(forms.Textarea):
         ace_attrs = {
             "class": "django-ace-widget loading",
             "style": "width:%s; height:%s" % (self.width, self.height),
+            "data-use-worker": self.use_worker,
         }
 
         if self.mode:
