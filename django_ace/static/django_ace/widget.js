@@ -1,6 +1,6 @@
 (function () {
   function getDocHeight() {
-    var D = document;
+    let D = document;
     return Math.max(
       Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
       Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
@@ -9,7 +9,7 @@
   }
 
   function getDocWidth() {
-    var D = document;
+    let D = document;
     return Math.max(
       Math.max(D.body.scrollWidth, D.documentElement.scrollWidth),
       Math.max(D.body.offsetWidth, D.documentElement.offsetWidth),
@@ -62,7 +62,7 @@
   }
 
   function apply_widget(widget) {
-    var div = widget.firstChild,
+    let div = widget.firstChild,
       textarea = next(widget),
       mode = widget.getAttribute("data-mode"),
       theme = widget.getAttribute("data-theme"),
@@ -78,16 +78,16 @@
       toolbar = prev(widget);
 
     // initialize editor and attach to widget element (for use in formset:removed)
-    var editor = (widget.editor = ace.edit(div, {
+    let editor = (widget.editor = ace.edit(div, {
       useWorker: useWorker,
       showPrintMargin: showprintmargin,
       showInvisibles: showinvisibles,
     }));
 
-    var main_block = div.parentNode.parentNode;
+    let main_block = div.parentNode.parentNode;
     if (toolbar != null) {
       // Toolbar maximize/minimize button
-      var min_max = toolbar.getElementsByClassName("django-ace-max_min");
+      let min_max = toolbar.getElementsByClassName("django-ace-max_min");
       min_max[0].onclick = function () {
         minimizeMaximize(widget, main_block, editor);
         return false;
@@ -144,7 +144,7 @@
    * @param {*} widget - The element to check.
    */
   function is_empty_form(widget) {
-    var empty_forms = document.getElementsByClassName("empty-form");
+    let empty_forms = document.getElementsByClassName("empty-form");
     for (empty_form of empty_forms) {
       if (empty_form.contains(widget)) {
         return true;
@@ -154,7 +154,7 @@
   }
 
   function init() {
-    var widgets = document.getElementsByClassName("django-ace-widget");
+    let widgets = document.getElementsByClassName("django-ace-widget");
     for (widget of widgets) {
       // skip the widget in the admin inline empty-form
       if (is_empty_form(widget)) {
