@@ -35,16 +35,6 @@
     return elem;
   }
 
-  function redraw(element) {
-    element = $(element);
-    var n = document.createTextNode(" ");
-    element.appendChild(n);
-    (function () {
-      n.parentNode.removeChild(n);
-    }.defer());
-    return element;
-  }
-
   function minimizeMaximize(widget, main_block, editor) {
     if (window.fullscreen == true) {
       main_block.className = "django-ace-editor";
