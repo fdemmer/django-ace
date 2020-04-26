@@ -7,6 +7,7 @@ repos:
   - id: debug-statements
   - id: end-of-file-fixer
   - id: fix-encoding-pragma
+    args: ['--remove']
   - id: mixed-line-ending
   - id: trailing-whitespace
     args: ['--markdown-linebreak-ext=md']
@@ -16,3 +17,8 @@ repos:
       '--ignore=E127,E128,E131,E265,F403,F405,W503',
       '--max-line-length=90',
     ]
+- repo: https://github.com/asottile/pyupgrade
+  rev: v2.1.0
+  hooks:
+  - id: pyupgrade
+    args: ['--py36-plus']
