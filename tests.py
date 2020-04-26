@@ -10,15 +10,15 @@ from django.utils import safestring
 
 import django_ace
 
+settings.configure(
+    TEMPLATES=[{
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    }],
+)
+django.setup()
+
 
 class TestWidget(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        settings.configure(TEMPLATES=[{
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        }])
-        django.setup()
-
     def test_media(self):
         expected_js = ['django_ace/ace/ace.js', 'django_ace/widget.js']
         expected_css = {'screen': ['django_ace/widget.css']}
@@ -52,11 +52,12 @@ class TestWidget(unittest.TestCase):
             '<a href="./" class="django-ace-max_min"></a>' \
             '</div>' \
             '<div class="django-ace-widget loading" ' \
+            'data-behaviours="true" data-readonly="false" data-showgutter="true" ' \
             'style="width:500px; height:300px" ' \
             'data-showprintmargin data-use-worker data-usesofttabs>' \
             '<div></div>' \
             '</div>' \
-            '<textarea name="name" rows="10" cols="40">\nvalue</textarea>' \
+            '<textarea name="name" cols="40" rows="10">\nvalue</textarea>' \
             '</div>'
         self.assertEqual(content, expected_content)
 
@@ -65,6 +66,9 @@ class TestWidget(unittest.TestCase):
         expected_attrs = {
             'class': 'django-ace-widget loading',
             'style': 'width:500px; height:300px',
+            'data-behaviours': 'true',
+            'data-readonly': 'false',
+            'data-showgutter': 'true',
             'data-showinvisibles': False,
             'data-showprintmargin': True,
             'data-use-worker': True,
@@ -95,12 +99,15 @@ class TestWidget(unittest.TestCase):
 
         widget = editor[1]
         self.assertEqual(widget.tag, 'div')
-        self.assertEqual(len(widget.attrib.keys()), 5)
+        self.assertEqual(len(widget.attrib.keys()), 8)
         self.assertEqual(
             sorted(widget.attrib.keys()),
             sorted([
                 'class',
                 'style',
+                'data-behaviours',
+                'data-readonly',
+                'data-showgutter',
                 'data-showprintmargin',
                 'data-usesofttabs',
                 'data-use-worker',
@@ -138,12 +145,15 @@ class TestWidget(unittest.TestCase):
 
         widget = editor[1]
         self.assertEqual(widget.tag, 'div')
-        self.assertEqual(len(widget.attrib.keys()), 4)
+        self.assertEqual(len(widget.attrib.keys()), 7)
         self.assertEqual(
             sorted(widget.attrib.keys()),
             sorted([
                 'class',
                 'style',
+                'data-behaviours',
+                'data-readonly',
+                'data-showgutter',
                 'data-showprintmargin',
                 'data-usesofttabs',
             ])
@@ -167,7 +177,7 @@ class TestWidget(unittest.TestCase):
 
         widget = editor[1]
         self.assertEqual(widget.tag, 'div')
-        self.assertEqual(len(widget.attrib.keys()), 13)
+        self.assertEqual(len(widget.attrib.keys()), 16)
         self.assertEqual(
             sorted(widget.attrib.keys()),
             sorted([
@@ -180,6 +190,9 @@ class TestWidget(unittest.TestCase):
                 'data-maxlines',
                 'data-tabsize',
                 'data-fontsize',
+                'data-behaviours',
+                'data-readonly',
+                'data-showgutter',
                 'data-showinvisibles',
                 'data-showprintmargin',
                 'data-usesofttabs',
