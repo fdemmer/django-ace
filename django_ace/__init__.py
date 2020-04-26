@@ -1,4 +1,4 @@
-from .widgets import AceWidget
+from .widgets import AceWidget  # noqa
 
 # adhere to PEP 386
-__version__ = "1.0.5"
+__version__ = "1.1.0rc1"
