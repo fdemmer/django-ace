@@ -53,7 +53,7 @@ class TestWidget(unittest.TestCase):
             'data-showprintmargin data-use-worker data-usesofttabs>' \
             '<div></div>' \
             '</div>' \
-            '<textarea name="name" rows="10" cols="40">\nvalue</textarea>' \
+            '<textarea name="name" cols="40" rows="10">\nvalue</textarea>' \
             '</div>'
         self.assertEqual(content, expected_content)
 
