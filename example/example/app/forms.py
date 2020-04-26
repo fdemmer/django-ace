@@ -8,10 +8,10 @@ class SnippetForm(forms.ModelForm):
     class Meta:
         model = Snippet
         widgets = {
-            "text": AceWidget(
+            'text': AceWidget(
                 mode='html', theme='twilight',
-                wordwrap=True, showinvisibles=True, usesofttabs=False,
-                tabsize=2, fontsize='12pt',
+                wrap_mode=True, show_invisibles=True, use_soft_tabs=False,
+                tab_size=2, font_size='12pt',
             ),
         }
         exclude = ()

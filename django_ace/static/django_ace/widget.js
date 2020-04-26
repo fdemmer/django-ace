@@ -67,21 +67,21 @@
       mode = widget.getAttribute("data-mode"),
       theme = widget.getAttribute("data-theme"),
       useWorker = widget.hasAttribute("data-use-worker"),
-      wordwrap = widget.hasAttribute("data-wordwrap"),
-      minlines = widget.getAttribute("data-minlines"),
-      maxlines = widget.getAttribute("data-maxlines"),
-      showprintmargin = widget.hasAttribute("data-showprintmargin"),
-      showinvisibles = widget.hasAttribute("data-showinvisibles"),
-      tabsize = widget.getAttribute("data-tabsize"),
-      fontsize = widget.getAttribute("data-fontsize"),
-      usesofttabs = widget.hasAttribute("data-usesofttabs"),
+      useWrapMode = widget.hasAttribute("data-wrap-mode"),
+      minLines = widget.getAttribute("data-min-lines"),
+      maxLines = widget.getAttribute("data-max-lines"),
+      showPrintMargin = widget.hasAttribute("data-show-print-margin"),
+      showInvisibles = widget.hasAttribute("data-show-invisibles"),
+      tabSize = widget.getAttribute("data-tab-size"),
+      fontSize = widget.getAttribute("data-font-size"),
+      useSoftTabs = widget.hasAttribute("data-use-soft-tabs"),
       toolbar = prev(widget);
 
     // initialize editor and attach to widget element (for use in formset:removed)
     let editor = (widget.editor = ace.edit(div, {
       useWorker: useWorker,
-      showPrintMargin: showprintmargin,
-      showInvisibles: showinvisibles,
+      showPrintMargin: showPrintMargin,
+      showInvisibles: showInvisibles,
     }));
 
     let main_block = div.parentNode.parentNode;
@@ -107,20 +107,20 @@
     if (theme) {
       editor.setTheme("ace/theme/" + theme);
     }
-    if (!!minlines) {
-      editor.setOption("minLines", minlines);
+    if (!!minLines) {
+      editor.setOption("minLines", minLines);
     }
-    if (!!maxlines) {
-      editor.setOption("maxLines", maxlines == "-1" ? Infinity : maxlines);
+    if (!!maxLines) {
+      editor.setOption("maxLines", maxLines == "-1" ? Infinity : maxLines);
     }
-    if (!!tabsize) {
-      editor.setOption("tabSize", tabsize);
+    if (!!tabSize) {
+      editor.setOption("tabSize", tabSize);
     }
-    if (!!fontsize) {
-      editor.setOption("fontSize", fontsize);
+    if (!!fontSize) {
+      editor.setOption("fontSize", fontSize);
     }
-    editor.session.setUseSoftTabs(usesofttabs);
-    editor.session.setUseWrapMode(wordwrap);
+    editor.session.setUseSoftTabs(useSoftTabs);
+    editor.session.setUseWrapMode(useWrapMode);
 
     // write data back to original textarea
     editor.session.on("change", function () {

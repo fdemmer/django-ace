@@ -10,16 +10,16 @@ class AceWidget(forms.Textarea):
         mode=None,
         theme=None,
         use_worker=True,
-        wordwrap=False,
+        wrap_mode=False,
         width="500px",
         height="300px",
-        minlines=None,
-        maxlines=None,
-        showprintmargin=True,
-        showinvisibles=False,
-        usesofttabs=True,
-        tabsize=None,
-        fontsize=None,
+        min_lines=None,
+        max_lines=None,
+        show_print_margin=True,
+        show_invisibles=False,
+        use_soft_tabs=True,
+        tab_size=None,
+        font_size=None,
         toolbar=True,
         *args,
         **kwargs
@@ -27,17 +27,17 @@ class AceWidget(forms.Textarea):
         self.mode = mode
         self.theme = theme
         self.use_worker = use_worker
-        self.wordwrap = wordwrap
+        self.wrap_mode = wrap_mode
         self.width = width
         self.height = height
-        self.minlines = minlines
-        self.maxlines = maxlines
-        self.showprintmargin = showprintmargin
-        self.showinvisibles = showinvisibles
-        self.tabsize = tabsize
-        self.fontsize = fontsize
+        self.min_lines = min_lines
+        self.max_lines = max_lines
+        self.show_print_margin = show_print_margin
+        self.show_invisibles = show_invisibles
+        self.tab_size = tab_size
+        self.font_size = font_size
         self.toolbar = toolbar
-        self.usesofttabs = usesofttabs
+        self.use_soft_tabs = use_soft_tabs
         super().__init__(*args, **kwargs)
 
     @property
@@ -58,24 +58,24 @@ class AceWidget(forms.Textarea):
             "class": "django-ace-widget loading",
             "style": f"width:{self.width}; height:{self.height}",
             "data-use-worker": self.use_worker,
-            "data-showinvisibles": self.showinvisibles,
-            "data-showprintmargin": self.showprintmargin,
-            "data-usesofttabs": self.usesofttabs,
-            "data-wordwrap": self.wordwrap,
+            "data-show-invisibles": self.show_invisibles,
+            "data-show-print-margin": self.show_print_margin,
+            "data-use-soft-tabs": self.use_soft_tabs,
+            "data-wrap-mode": self.wrap_mode,
         }
 
         if self.mode:
             ace_attrs["data-mode"] = self.mode
         if self.theme:
             ace_attrs["data-theme"] = self.theme
-        if self.minlines:
-            ace_attrs["data-minlines"] = str(self.minlines)
-        if self.maxlines:
-            ace_attrs["data-maxlines"] = str(self.maxlines)
-        if self.tabsize:
-            ace_attrs["data-tabsize"] = str(self.tabsize)
-        if self.fontsize:
-            ace_attrs["data-fontsize"] = str(self.fontsize)
+        if self.min_lines:
+            ace_attrs["data-min-lines"] = str(self.min_lines)
+        if self.max_lines:
+            ace_attrs["data-max-lines"] = str(self.max_lines)
+        if self.tab_size:
+            ace_attrs["data-tab-size"] = str(self.tab_size)
+        if self.font_size:
+            ace_attrs["data-font-size"] = str(self.font_size)
 
         return ace_attrs
 

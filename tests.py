@@ -50,7 +50,7 @@ class TestWidget(unittest.TestCase):
             '</div>' \
             '<div class="django-ace-widget loading" ' \
             'style="width:500px; height:300px" ' \
-            'data-showprintmargin data-use-worker data-usesofttabs>' \
+            'data-show-print-margin data-use-soft-tabs data-use-worker>' \
             '<div></div>' \
             '</div>' \
             '<textarea name="name" cols="40" rows="10">\nvalue</textarea>' \
@@ -62,11 +62,11 @@ class TestWidget(unittest.TestCase):
         expected_attrs = {
             'class': 'django-ace-widget loading',
             'style': 'width:500px; height:300px',
-            'data-showinvisibles': False,
-            'data-showprintmargin': True,
+            'data-show-invisibles': False,
+            'data-show-print-margin': True,
             'data-use-worker': True,
-            'data-usesofttabs': True,
-            'data-wordwrap': False,
+            'data-use-soft-tabs': True,
+            'data-wrap-mode': False,
         }
         self.assertEqual(ace_widget.get_attributes(), expected_attrs)
 
@@ -98,15 +98,15 @@ class TestWidget(unittest.TestCase):
             sorted([
                 'class',
                 'style',
-                'data-showprintmargin',
-                'data-usesofttabs',
+                'data-show-print-margin',
+                'data-use-soft-tabs',
                 'data-use-worker',
             ])
         )
         self.assertEqual(widget.attrib['class'], 'django-ace-widget loading')
         self.assertEqual(widget.attrib['style'], 'width:500px; height:300px')
-        self.assertEqual(widget.attrib['data-showprintmargin'], '')
-        self.assertEqual(widget.attrib['data-usesofttabs'], '')
+        self.assertEqual(widget.attrib['data-show-print-margin'], '')
+        self.assertEqual(widget.attrib['data-use-soft-tabs'], '')
         self.assertEqual(widget.attrib['data-use-worker'], '')
 
         textarea = editor[2]
@@ -141,8 +141,8 @@ class TestWidget(unittest.TestCase):
             sorted([
                 'class',
                 'style',
-                'data-showprintmargin',
-                'data-usesofttabs',
+                'data-show-print-margin',
+                'data-use-soft-tabs',
             ])
         )
 
@@ -150,12 +150,12 @@ class TestWidget(unittest.TestCase):
         ace_widget = django_ace.AceWidget(
             mode='html',
             theme='twilight',
-            wordwrap=True,
-            showinvisibles=True,
-            minlines=8,
-            maxlines=16,
-            tabsize=4,
-            fontsize=12,
+            wrap_mode=True,
+            show_invisibles=True,
+            min_lines=8,
+            max_lines=16,
+            tab_size=4,
+            font_size=12,
         )
         content = ace_widget.render(name, value)
 
@@ -172,24 +172,24 @@ class TestWidget(unittest.TestCase):
                 'style',
                 'data-mode',
                 'data-theme',
-                'data-wordwrap',
-                'data-minlines',
-                'data-maxlines',
-                'data-tabsize',
-                'data-fontsize',
-                'data-showinvisibles',
-                'data-showprintmargin',
-                'data-usesofttabs',
+                'data-wrap-mode',
+                'data-min-lines',
+                'data-max-lines',
+                'data-tab-size',
+                'data-font-size',
+                'data-show-invisibles',
+                'data-show-print-margin',
+                'data-use-soft-tabs',
                 'data-use-worker',
             ])
         )
         self.assertEqual(widget.attrib['data-mode'], 'html')
         self.assertEqual(widget.attrib['data-theme'], 'twilight')
-        self.assertEqual(widget.attrib['data-wordwrap'], '')
-        self.assertEqual(widget.attrib['data-minlines'], '8')
-        self.assertEqual(widget.attrib['data-maxlines'], '16')
-        self.assertEqual(widget.attrib['data-tabsize'], '4')
-        self.assertEqual(widget.attrib['data-fontsize'], '12')
+        self.assertEqual(widget.attrib['data-wrap-mode'], '')
+        self.assertEqual(widget.attrib['data-min-lines'], '8')
+        self.assertEqual(widget.attrib['data-max-lines'], '16')
+        self.assertEqual(widget.attrib['data-tab-size'], '4')
+        self.assertEqual(widget.attrib['data-font-size'], '12')
 
     def test_attrib_size(self, name='form-0-code', value='<html></html>'):
         ace_widget = django_ace.AceWidget(width='90%', height='10em')
