@@ -7,15 +7,15 @@ from django.utils import safestring
 
 import django_ace
 
+settings.configure(
+    TEMPLATES=[{
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    }],
+)
+django.setup()
+
 
 class TestWidget(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        settings.configure(TEMPLATES=[{
-            'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        }])
-        django.setup()
-
     def test_media(self):
         expected_js = ['django_ace/ace/ace.js', 'django_ace/widget.js']
         expected_css = {'screen': ['django_ace/widget.css']}
