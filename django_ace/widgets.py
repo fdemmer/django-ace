@@ -1,13 +1,6 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django import forms
+from django.forms.utils import flatatt
 from django.template import Context, Template
-
-try:
-    from django.forms.utils import flatatt
-except ImportError:
-    from django.forms.util import flatatt
 from django.utils.safestring import mark_safe
 
 
@@ -45,7 +38,7 @@ class AceWidget(forms.Textarea):
         self.fontsize = fontsize
         self.toolbar = toolbar
         self.usesofttabs = usesofttabs
-        super(AceWidget, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     @property
     def media(self):
@@ -63,7 +56,7 @@ class AceWidget(forms.Textarea):
     def get_attributes(self):
         ace_attrs = {
             "class": "django-ace-widget loading",
-            "style": "width:%s; height:%s" % (self.width, self.height),
+            "style": f"width:{self.width}; height:{self.height}",
             "data-use-worker": self.use_worker,
             "data-showinvisibles": self.showinvisibles,
             "data-showprintmargin": self.showprintmargin,
@@ -87,7 +80,7 @@ class AceWidget(forms.Textarea):
         return ace_attrs
 
     def render(self, name, value, attrs=None, renderer=None):
-        textarea = super(AceWidget, self).render(name, value, attrs, renderer)
+        textarea = super().render(name, value, attrs, renderer)
 
         template = Template(
             '{% spaceless %}'

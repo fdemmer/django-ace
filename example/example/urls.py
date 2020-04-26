@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
-from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path
 
 from .app.views import simple
 
 urlpatterns = [
-    url(r'^admin/?', admin.site.urls),
-    url(r'', simple),
+    path('admin', admin.site.urls),
+    path('', simple),
 ]
