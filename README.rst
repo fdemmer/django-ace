@@ -96,6 +96,16 @@ Then browser to ``http://localhost:8000`` or ``http://localhost:8000/admin``.
 Change log
 ==========
 
+v1.1.0
+------
+
+- Rewrite of init() function to support admin inline-forms
+- New widget option ``use_worker``
+- Use template engine to generate widget HTML
+- Rewrite of boolean data attributes
+- Add tests, update example with admin integration
+
+
 v1.0.11
 -------
 

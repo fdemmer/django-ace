@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="django-ace",
-    version="1.0.11",
+    version="1.1.0rc2",
     description="django-ace provides integration for ajax.org ACE with Django",
     long_description=open("README.rst").read(),
     author="Bradley Ayers",

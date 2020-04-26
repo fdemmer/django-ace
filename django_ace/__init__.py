@@ -1,4 +1,5 @@
-from .widgets import AceWidget
+# -*- coding: utf-8 -*-
+from .widgets import AceWidget  # noqa
 
 # adhere to PEP 386
-__version__ = "1.0.11"
+__version__ = "1.1.0rc2"
