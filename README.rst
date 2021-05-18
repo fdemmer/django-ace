@@ -142,6 +142,7 @@ v2.0.0
 - Update Ace editor to version v1.10.1 and use minified build
 - General cleanup and modernization of code
 - Update example with widget in ``TabularInline``
+- Update packaging by Julien Palard
 - Python >= 3.6 is required
 
 v1.1.0
