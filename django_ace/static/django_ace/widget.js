@@ -75,6 +75,7 @@
             textarea = next(widget),
             mode = widget.getAttribute('data-mode'),
             theme = widget.getAttribute('data-theme'),
+            useWorker = widget.hasAttribute('data-use-worker'),
             wordwrap = widget.getAttribute('data-wordwrap'),
             minlines = widget.getAttribute('data-minlines'),
             maxlines = widget.getAttribute('data-maxlines'),
@@ -89,7 +90,9 @@
             toolbar = prev(widget);
 
         // initialize editor and attach to widget element (for use in formset:removed)
-        var editor = widget.editor = ace.edit(div);
+        var editor = widget.editor = ace.edit(div, {
+            useWorker: useWorker
+        });
 
         var main_block = div.parentNode.parentNode;
         if (toolbar != null) {
@@ -102,21 +105,20 @@
         }
 
         // load initial data
-        editor.getSession().setValue(textarea.value);
+        editor.session.setValue(textarea.value);
 
         // the editor is initially absolute positioned
         textarea.style.display = "none";
 
         // options
         if (mode) {
-            var Mode = require("ace/mode/" + mode).Mode;
-            editor.getSession().setMode(new Mode());
+            editor.session.setMode("ace/mode/" + mode);
         }
         if (theme) {
             editor.setTheme("ace/theme/" + theme);
         }
         if (wordwrap == "true") {
-            editor.getSession().setUseWrapMode(true);
+            editor.session.setUseWrapMode(true);
         }
         if (!!minlines) {
             editor.setOption("minLines", minlines);
@@ -140,7 +142,7 @@
             editor.setOption("readOnly", readonly);
         }
         if (usesofttabs == "false") {
-            editor.getSession().setUseSoftTabs(false);
+            editor.session.setUseSoftTabs(false);
         }
         if (showgutter == "false") {
             editor.setOption("showGutter", false);
@@ -150,8 +152,8 @@
         }
 
         // write data back to original textarea
-        editor.getSession().on('change', function() {
-            textarea.value = editor.getSession().getValue();
+        editor.session.on('change', function() {
+            textarea.value = editor.session.getValue();
         });
 
         editor.commands.addCommand({
