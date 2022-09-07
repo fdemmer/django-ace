@@ -12,6 +12,7 @@ setup(
     url="https://github.com/django-ace/django-ace",
     packages=find_packages(exclude=["example", "example.*"]),
     include_package_data=True,
+    setup_requires=['wheel'],
     install_requires=["Django>1.11,<4.0"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -22,4 +23,5 @@ setup(
         "Programming Language :: Python :: 3",
         "Framework :: Django",
     ],
+    options={'bdist_wheel': {'universal': '1'}},
 )

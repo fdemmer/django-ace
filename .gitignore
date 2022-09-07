@@ -8,6 +8,7 @@
 *.pyc
 /*.egg-info
 /*.sublime-*
+/build
 /dist
 /build
 /example/.env
