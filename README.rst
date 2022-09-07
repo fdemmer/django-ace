@@ -2,11 +2,17 @@
 django-ace
 ==========
 
+django-ace provides integration for `Ace - The High Performance Code Editor for the Web`__ with Django.
+
+django-ace is a fork of Kit Sunde's django-ace-editor by Bradley Ayers and continued by Julien Palard et al.
+
+.. __: https://ace.c9.io
+
 
 Usage
 =====
 
-::
+.. code-block:: python
 
     from django import forms
     from django_ace import AceWidget
@@ -15,17 +21,23 @@ Usage
         text = forms.CharField(widget=AceWidget)
 
 Syntax highlighting and static analysis can be enabled by specifying the
-language::
+language:
+
+.. code-block:: python
 
     class EditorForm(forms.Form):
         text = forms.CharField(widget=AceWidget(mode='css'))
 
-Themes are also supported::
+Themes are also supported:
+
+.. code-block:: python
 
     class EditorForm(forms.Form):
         text = forms.CharField(widget=AceWidget(mode='css', theme='twilight'))
 
-To deactivate the syntax checker completely, disable the Web Worker::
+To deactivate the syntax checker completely, disable the Web Worker:
+
+.. code-block:: python
 
     class EditorForm(forms.Form):
         text = forms.CharField(widget=AceWidget(
@@ -33,7 +45,9 @@ To deactivate the syntax checker completely, disable the Web Worker::
         ))
 
 
-All options, and their default values, are::
+All options, and their default values, are:
+
+.. code-block:: python
 
     class EditorForm(forms.Form):
         text = forms.CharField(widget=AceWidget(
@@ -57,14 +71,18 @@ All options, and their default values, are::
         ))
 
 
-Install
-=======
+Installation
+============
 
-1. Install using pip::
+1. Install using pip:
+
+.. code-block:: shell
 
     pip install django_ace
 
-2. Update ``INSTALLED_APPS``::
+2. Update ``INSTALLED_APPS``:
+
+.. code-block:: python
 
     INSTALLED_APPS = (
         # ...
@@ -75,7 +93,9 @@ Install
 Example Project
 ===============
 
-There's an example project included in the source, to try it do::
+There's an example project included in the source, to try it do:
+
+.. code-block:: shell
 
     # install in virtualenv
     cd example/
@@ -99,11 +119,12 @@ Change log
 v1.1.0
 ------
 
-- Rewrite of init() function to support admin inline-forms
+- Rewrite of ``init()`` function to support admin inline-forms
 - New widget option ``use_worker``
 - Use template engine to generate widget HTML
 - Rewrite of boolean data attributes
 - Add tests, update example with admin integration
+- Last release supporting Python 2.7
 
 
 v1.0.11
