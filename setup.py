@@ -2,12 +2,12 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="django-ace",
-    version="1.1.0rc2",
+    name="fdemmer-django-ace",
+    version="1.1.0",
     description="django-ace provides integration for ajax.org ACE with Django",
     long_description=open("README.rst").read(),
-    author="Bradley Ayers",
-    author_email="bradley.ayers@gmail.com",
+    author="Florian Demmer",
+    author_email="fdemmer@gmail.com",
     license="Simplified BSD",
     url="https://github.com/django-ace/django-ace",
     packages=find_packages(exclude=["example", "example.*"]),
