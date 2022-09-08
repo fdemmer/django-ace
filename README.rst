@@ -2,6 +2,24 @@
 django-ace
 ==========
 
+|Build| |Coverage| |PyPI Download| |PyPI Python Versions| |PyPI License|
+
+.. |Build| image:: https://github.com/fdemmer/django-ace/workflows/CI/badge.svg?branch=master
+    :target: https://github.com/fdemmer/django-ace/actions?workflow=CI
+
+.. |Coverage| image:: https://codecov.io/gh/fdemmer/django-ace/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/fdemmer/django-ace
+
+.. |PyPI Download| image:: https://img.shields.io/pypi/v/fdemmer-django-ace.svg
+   :target: https://pypi.python.org/pypi/fdemmer-django-ace/
+
+.. |PyPI Python Versions| image:: https://img.shields.io/pypi/pyversions/fdemmer-django-ace.svg
+   :target: https://pypi.python.org/pypi/fdemmer-django-ace/
+
+.. |PyPI License| image:: https://img.shields.io/pypi/l/fdemmer-django-ace.svg
+   :target: https://pypi.python.org/pypi/fdemmer-django-ace/
+
+
 django-ace provides integration for `Ace - The High Performance Code Editor for the Web`__ with Django.
 
 django-ace is a fork of Kit Sunde's django-ace-editor by Bradley Ayers and continued by Julien Palard et al.
