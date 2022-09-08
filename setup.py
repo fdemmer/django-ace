@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='fdemmer-django-ace',
-    version='1.1.0',
+    version='2.0.0',
     description='django-ace provides integration for ajax.org ACE with Django',
     long_description=open('README.rst').read(),
     author='Florian Demmer',
