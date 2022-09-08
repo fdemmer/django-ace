@@ -3,11 +3,7 @@ from __future__ import unicode_literals
 
 from django import forms
 from django.template import Context, Template
-
-try:
-    from django.forms.utils import flatatt
-except ImportError:
-    from django.forms.util import flatatt
+from django.forms.utils import flatatt
 from django.utils.safestring import mark_safe
 
 
