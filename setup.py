@@ -9,7 +9,7 @@ setup(
     author="Florian Demmer",
     author_email="fdemmer@gmail.com",
     license="Simplified BSD",
-    url="https://github.com/django-ace/django-ace",
+    url="https://github.com/fdemmer/django-ace",
     packages=find_packages(exclude=["example", "example.*"]),
     include_package_data=True,
     setup_requires=['wheel'],

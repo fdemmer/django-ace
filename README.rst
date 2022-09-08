@@ -24,6 +24,8 @@ django-ace provides integration for `Ace - The High Performance Code Editor for 
 
 django-ace is a fork of Kit Sunde's django-ace-editor by Bradley Ayers and continued by Julien Palard et al.
 
+This is another fork by Florian Demmer; Compare changelog and source to decide whether you need the changes or better use upstream.
+
 .. __: https://ace.c9.io
 
 
