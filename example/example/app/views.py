@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.shortcuts import redirect, render
 
 from .forms import SnippetForm
@@ -13,7 +12,7 @@ def simple(request):
             return redirect('/')
     else:
         form = SnippetForm()
-    return render(request, "snippets.html", {
-        "form": form,
-        "snippets": Snippet.objects.all()
+    return render(request, 'snippets.html', {
+        'form': form,
+        'snippets': Snippet.objects.all()
     })

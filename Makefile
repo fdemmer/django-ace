@@ -1,5 +1,16 @@
 all: _list
 
+ACE_VERSION ?= master
+ACE_REMOTE ?= https://github.com/ajaxorg/ace-builds.git
+ACE_TMP ?= ./build/ace
+
+$(ACE_TMP):
+	git clone --branch $(ACE_VERSION) $(ACE_REMOTE) $(ACE_TMP)
+
+upgrade_ace: $(ACE_TMP)
+	cd $(ACE_TMP) && git fetch --tags && git reset --hard $(ACE_VERSION)
+	rsync --delete -r $(ACE_TMP)/src-min/ django_ace/static/django_ace/ace/
+
 test:
 	tox --parallel auto --recreate
 
@@ -7,7 +18,7 @@ clean:
 	rm -rf build dist
 
 build:
-	python setup.py sdist bdist_wheel
+	python -m build
 
 publish-test: clean build
 	twine upload -r testpypi --sign dist/*
