@@ -1,7 +1,13 @@
 Bump Ace version
 ================
 
-Just run ``sh bin/upgrade_ace.sh``.
+To update the package's copy of Ace run the make target ``upgrade_ace``
+and commit he copied files.
+Optionally provide ``ACE_VERSION`` to use a specific commit/branch/tag.
+
+.. code-block:: shell
+
+    ACE_VERSION=v1.5.0 make upgrade_ace
 
 
 How to release
