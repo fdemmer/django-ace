@@ -1,4 +1,3 @@
-
 ;                (function() {
                     window.require(["ace/snippets/soy_template"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {

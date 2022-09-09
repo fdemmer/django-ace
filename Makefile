@@ -9,7 +9,7 @@ $(ACE_TMP):
 
 upgrade_ace: $(ACE_TMP)
 	cd $(ACE_TMP) && git fetch --tags && git reset --hard $(ACE_VERSION)
-	rsync --delete -r $(ACE_TMP)/src/ django_ace/static/django_ace/ace/
+	rsync --delete -r $(ACE_TMP)/src-min/ django_ace/static/django_ace/ace/
 
 test:
 	tox --parallel auto --recreate

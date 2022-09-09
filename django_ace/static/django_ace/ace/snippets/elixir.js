@@ -1,4 +1,3 @@
-
 ;                (function() {
                     window.require(["ace/snippets/elixir"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
