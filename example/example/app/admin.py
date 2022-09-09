@@ -12,6 +12,7 @@ default_ace_widget = AceWidget(mode='html', theme='textmate')
 class SnippetAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': default_ace_widget},
+        models.JSONField: {'widget': AceWidget(mode='json', theme='textmate')},
     }
 
 
