@@ -136,6 +136,13 @@ Then browser to ``http://localhost:8000`` or ``http://localhost:8000/admin``.
 Change log
 ==========
 
+v2.0.0
+------
+
+- General cleanup and modernization of code
+- Update example with widget in ``TabularInline``
+- Python >= 3.6 is required
+
 v1.1.0
 ------
 
