@@ -24,6 +24,7 @@ class AceWidget(forms.Textarea):
         readonly=False,
         showgutter=True,
         behaviours=True,
+        extensions=None,
         *args,
         **kwargs
     ):
@@ -44,6 +45,7 @@ class AceWidget(forms.Textarea):
         self.behaviours = behaviours
         self.showgutter = showgutter
         self.usesofttabs = usesofttabs
+        self.extensions = extensions
         super().__init__(*args, **kwargs)
 
     @property
@@ -54,6 +56,9 @@ class AceWidget(forms.Textarea):
             js.append('django_ace/ace/mode-%s.js' % self.mode)
         if self.theme:
             js.append('django_ace/ace/theme-%s.js' % self.theme)
+        if self.extensions:
+            for extension in self.extensions:
+                js.append('django_ace/ace/ext-%s.js' % extension)
 
         css = {'screen': ['django_ace/widget.css']}
 
