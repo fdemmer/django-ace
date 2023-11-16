@@ -142,6 +142,7 @@ v2.1.0
 - Add CSS to work with admin changes in Django 4.2.
   Now you can use `width="100%"` without breaking the layout.
   (Anh Tran <anhtran.sky@gmail.com>in upstream v1.15.4)
+- Replace flake8 with ruff
 
 v2.0.0
 ------
