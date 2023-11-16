@@ -139,6 +139,7 @@ Change log
 v2.1.0
 ------
 
+- Update Ace editor to version v1.31.2
 - Add CSS to work with admin changes in Django 4.2.
   Now you can use `width="100%"` without breaking the layout.
   (Anh Tran <anhtran.sky@gmail.com>in upstream v1.15.4)
