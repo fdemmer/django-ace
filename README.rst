@@ -136,13 +136,19 @@ Then browser to ``http://localhost:8000`` or ``http://localhost:8000/admin``.
 Change log
 ==========
 
+v2.2.0
+------
+
+- Update Ace editor to version v1.32.3
+- Expose extensions, contributed by @okaycj in upstream v1.32.0
+
 v2.1.0
 ------
 
 - Update Ace editor to version v1.31.2
 - Add CSS to work with admin changes in Django 4.2.
   Now you can use `width="100%"` without breaking the layout.
-  (Anh Tran <anhtran.sky@gmail.com>in upstream v1.15.4)
+  (Anh Tran <anhtran.sky@gmail.com> in upstream v1.15.4)
 - Replace flake8 with ruff
 
 v2.0.0
